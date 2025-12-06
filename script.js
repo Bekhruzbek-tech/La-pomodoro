@@ -36,7 +36,8 @@ session.addEventListener("click", () => {
     session.classList.add("active")
     shortBreak.classList.remove("active")
     longBreak.classList.remove("active")
-
+    const audio = document.getElementById("myaudio");
+    audio.play();   // ▶️ Play music when Start is pressed
     currentTimer = pomodoro
 })
 
@@ -112,3 +113,10 @@ stopBtn.addEventListener("click", () => {
         clearInterval(myInterval)
     }
 })
+
+document.getElementById("stop").addEventListener("click", function () {
+    const audio = document.getElementById("myaudio");
+    audio.pause();
+    audio.currentTime = 0;  // reset to start
+});
+
