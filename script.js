@@ -120,3 +120,18 @@ document.getElementById("stop").addEventListener("click", function () {
     audio.currentTime = 0;  // reset to start
 });
 
+window.onload = function() {
+    document.getElementById("popup-overlay").style.display = "flex";
+};
+
+// Close popup when submitting the choice
+document.getElementById("popup-submit").addEventListener("click", function() {
+    const selected = document.querySelector('input[name="reason"]:checked');
+
+    if (selected) {
+        console.log("User chose:", selected.value); // optional
+        document.getElementById("popup-overlay").style.display = "none";
+    } else {
+        alert("Please select an option 😊");
+    }
+});
